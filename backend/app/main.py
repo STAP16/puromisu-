@@ -29,10 +29,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(user_router, prefix="/api")
-app.include_router(promise_router, prefix="/api")
-app.include_router(auth_router, prefix="/api")
-app.include_router(protected_router, prefix="/api")
+app.include_router(user_router )
+app.include_router(promise_router )
+app.include_router(auth_router)
+app.include_router(protected_router)
 
 @app.on_event("startup")
 async def on_startup():
