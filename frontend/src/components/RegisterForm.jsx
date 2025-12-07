@@ -9,7 +9,7 @@ import { useRegister } from "../hooks/useRegister";
 import Loader from "../ArtComponents/Loader";
 
 const VALID_NAME_LENGHT = 3;
-const VALID_PASSWORD_LENGHT = 6;
+const VALID_PASSWORD_LENGHT = 4;
 
 const RegisterForm = () => {
   const { register, loading } = useRegister();
@@ -47,15 +47,16 @@ const RegisterForm = () => {
     if (data.error) {
       return setError("Пользователь уже существует");
     }
-    if (loading) return <Loader />;
 
-    return navigate("/login");
+    console.log("Направить на страницу");
+    navigate("/login");
   };
 
   useEffect(() => {
     nameInputRef.current.focus();
   }, []);
 
+  if (loading) return <Loader />;
   return (
     <StyledWrapper>
       <div className="form">
@@ -91,7 +92,7 @@ const RegisterForm = () => {
           Create Account
         </button>
         <div className="infoFormBlock">
-          <NavLink to="/login">Have account?</NavLink>
+          <NavLink to="/login">Have an account?</NavLink>
         </div>
       </div>
       <div className="errorMessage" hidden={false}>

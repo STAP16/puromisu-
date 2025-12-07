@@ -9,7 +9,9 @@ const useProtected = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`${MY_API}/content`);
+        const response = await fetch(`${MY_API}/content`, {
+          credentials: "include",
+        });
         if (!response.ok) {
           throw new Error(response.status);
         }
