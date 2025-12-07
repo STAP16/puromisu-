@@ -1,31 +1,36 @@
 import { useState } from "react";
-import useUsers from "./hooks/useUsers";
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/auth/Login";
 import { BrowserRouter } from "react-router-dom";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Main from "./pages/main/Main";
 import Register from "./pages/auth/Register";
+import { UserContext } from "./context/UserContext";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
+  const [userData, setUserData] = useState(null);
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        {/* <Route path="/auth" element={<Auth />} /> */}
-
-        <Route
-          path="/main"
-          element={
-            <ProtectedRoute>
-              <Main />
-            </ProtectedRoute>
-          }
-        />
-        {/* <Route path="/service" element={<Services />} />
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          {/* <Route path="/auth" element={<Auth />} /> */}
+          <Route
+            path="/main"
+            element={
+              <ProtectedRoute setUserData={setUserData}>
+                <UserContext.Provider value={userData}>
+                  <Main />
+                </UserContext.Provider>
+              </ProtectedRoute>
+            }
+          />
+          {/* <Route path="/service" element={<Services />} />
         <Route path="profile" element={<Profile />} /> */}
-      </Routes>
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

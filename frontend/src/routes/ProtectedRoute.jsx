@@ -1,29 +1,16 @@
 import { Navigate } from "react-router-dom";
-import useProtected from "../hooks/useProtected";
+import { useAuth } from "../context/AuthContext";
 import Loader from "../ArtComponents/Loader";
-import useRefresh from "../hooks/useRefresh";
+import { useEffect } from "react";
 
 const UNAUTHORIZED = "401";
 const FORBIDDEN = "403";
 
 export default function ProtectedRoute({ children }) {
-  const { data, loading, error } = useProtected();
-  if (loading) {
-    return <Loader />;
-  }
-  if (!data && error === UNAUTHORIZED) {
-    return <Navigate to="/register" />;
-  }
+  const { userData, loading } = useAuth();
 
-  if (!data && error === FORBIDDEN) {
-    // TODO: Использовать refresh токен
-    // А если рефреш форбиден то login
-    const data = useRefresh();
-    if (data.error) {
-      return <Navigate to="/login" />;
-    }
-    return <Navigate to="/main" />;
-  }
+  if (loading) return <Loader />; // показываем Loader пока идёт fetch/refresh
+  if (!userData) return <Navigate to="/login" replace />; // если нет данных → login
 
   return children;
 }

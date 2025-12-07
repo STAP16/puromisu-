@@ -43,3 +43,9 @@
   font-size: 50px;
   text-align: center;
 }
+
+.clockSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

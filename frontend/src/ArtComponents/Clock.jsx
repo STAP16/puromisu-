@@ -23,7 +23,7 @@ const Clock = () => {
         <p className="card-title">Piromisu 💫</p>
         <p className="time-text">
           <span>
-            <time datetime="">{time.split(" ")[0]}</time>
+            <time dateTime="">{time.split(" ")[0]}</time>
           </span>
           <span className="time-sub-text">{time.split(" ")[1]}</span>
         </p>
@@ -61,6 +61,7 @@ const StyledWrapper = styled.div`
     background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
     transition: all 0.3s ease-in-out;
     overflow: hidden;
+    user-select: none;
   }
 
   .time-text {

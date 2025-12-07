@@ -1,8 +1,14 @@
 import Clock from "../../ArtComponents/Clock";
 import Planet from "../../ArtComponents/Planet";
+import { UserContext } from "../../context/UserContext";
 import styles from "./Main.module.css";
+import { useContext, useEffect, useState } from "react";
+import Loader from "../../ArtComponents/Loader";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Main() {
+  const { userData } = useAuth();
+
   return (
     <div className={styles.pageCont}>
       <div className={styles.wiggleWrapper}>
@@ -11,7 +17,17 @@ export default function Main() {
         </div>
       </div>
       <div className={styles.mainPage}>
-        <Clock />
+        <div className="pageContent">
+          <div className={styles.clockSection}>
+            <Clock />
+          </div>
+          <div className="infoBlock">
+            <h2>
+              Welcome {userData.username}, check your promises id:
+              {userData.id}
+            </h2>
+          </div>
+        </div>
       </div>
     </div>
   );

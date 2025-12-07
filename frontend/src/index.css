@@ -120,3 +120,16 @@ a:hover {
   color: rgba(255, 0, 0, 0.412);
   position: absolute;
 }
+
+.pageContent {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.infoBlock {
+  align-items: center;
+  justify-content: center;
+  display: grid;
+}
