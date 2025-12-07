@@ -15,6 +15,16 @@ body {
   color: rgb(174, 212, 245);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #fff;
+}
+
 .stars {
   width: 1px;
   height: 1px;
@@ -81,4 +91,32 @@ body {
   align-items: center; /* центр по вертикали */
   justify-content: center; /* центр по горизонтали */
   z-index: 9999;
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.infoFormBlock {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.errorMessage {
+  font-size: 16px;
+  text-align: center;
+  color: rgba(255, 0, 0, 0.412);
+  position: absolute;
 }

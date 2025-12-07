@@ -1,15 +1,33 @@
 import { useState } from "react";
-import { BottomLoader } from "./ArtComponents/Cirlce";
-import Loader from "./ArtComponents/Loader";
 import useUsers from "./hooks/useUsers";
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/auth/Login";
+import { BrowserRouter } from "react-router-dom";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import Main from "./pages/main/Main";
+import Register from "./pages/auth/Register";
 
 function App() {
-  const { data, loading, error } = useUsers();
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        {/* <Route path="/auth" element={<Auth />} /> */}
 
-  if (loading) return <Loader />;
-  if (error) return console.error(error);
-
-  return <h1>Запрос успешен!</h1>;
+        <Route
+          path="/main"
+          element={
+            <ProtectedRoute>
+              <Main />
+            </ProtectedRoute>
+          }
+        />
+        {/* <Route path="/service" element={<Services />} />
+        <Route path="profile" element={<Profile />} /> */}
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
