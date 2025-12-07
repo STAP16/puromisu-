@@ -1,0 +1,45 @@
+.wigglePos {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.wiggleWrapper {
+  transform: translate(80px, 60px);
+}
+
+.wiggle {
+  animation: wiggle 10s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.mainPage {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -100px;
+  gap: 20px;
+}
+
+.mainPage h1 {
+  font-size: 50px;
+  text-align: center;
+}

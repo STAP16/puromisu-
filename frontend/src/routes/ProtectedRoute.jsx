@@ -1,6 +1,7 @@
 import { Navigate } from "react-router-dom";
 import useProtected from "../hooks/useProtected";
 import Loader from "../ArtComponents/Loader";
+import useRefresh from "../hooks/useRefresh";
 
 const UNAUTHORIZED = "401";
 const FORBIDDEN = "403";
@@ -17,7 +18,11 @@ export default function ProtectedRoute({ children }) {
   if (!data && error === FORBIDDEN) {
     // TODO: Использовать refresh токен
     // А если рефреш форбиден то login
-    return <Navigate to="/login" />;
+    const data = useRefresh();
+    if (data.error) {
+      return <Navigate to="/login" />;
+    }
+    return <Navigate to="/main" />;
   }
 
   return children;
