@@ -5,11 +5,10 @@ import { BrowserRouter } from "react-router-dom";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Main from "./pages/main/Main";
 import Register from "./pages/auth/Register";
-import { UserContext } from "./context/UserContext";
 import { AuthProvider } from "./context/AuthContext";
+import PromisePage from "./pages/promise/PromisePage";
 
 function App() {
-  const [userData, setUserData] = useState(null);
   return (
     <BrowserRouter>
       <AuthProvider>
@@ -18,12 +17,18 @@ function App() {
           <Route path="/register" element={<Register />} />
           {/* <Route path="/auth" element={<Auth />} /> */}
           <Route
+            path="/promises/:id"
+            element={
+              <ProtectedRoute>
+                <PromisePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/main"
             element={
-              <ProtectedRoute setUserData={setUserData}>
-                <UserContext.Provider value={userData}>
-                  <Main />
-                </UserContext.Provider>
+              <ProtectedRoute>
+                <Main />
               </ProtectedRoute>
             }
           />

@@ -132,4 +132,28 @@ a:hover {
   align-items: center;
   justify-content: center;
   display: grid;
+  text-align: center;
+  gap: 10px;
+}
+
+.buttonSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.leftButton {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+
+.centerButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+@media screen and (max-width: 768px) {
 }

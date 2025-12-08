@@ -48,8 +48,7 @@ const RegisterForm = () => {
       return setError("Пользователь уже существует");
     }
 
-    console.log("Направить на страницу");
-    navigate("/login");
+    navigate("/login", { replace: true });
   };
 
   useEffect(() => {

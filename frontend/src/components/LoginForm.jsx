@@ -29,7 +29,7 @@ const LoginForm = () => {
 
     const data = await login(userLoginData);
     if (data.access_token) {
-      navigate("/main");
+      navigate("/main", { replace: true });
     }
     return setError(data.error?.message);
   };
