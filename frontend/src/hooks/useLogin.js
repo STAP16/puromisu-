@@ -1,7 +1,7 @@
 import { useState } from "react";
 const MY_API = "http://localhost:8000/auth";
 
-export const useLogin = (loginData) => {
+export const useLogin = () => {
   const [loading, setLoading] = useState(false);
 
   async function login(loginData) {

@@ -21,16 +21,10 @@ export const AuthProvider = ({ children }) => {
         if (res.status === 403) {
           const refresh = await useRefresh();
           if (refresh.error) {
-            navigate("/login", { replace: true });
-            return;
+            throw new Error("Refresh tkn exp");
           }
           // повторяем fetch после успешного refresh
           res = await fetch(`${MY_API}/content`, { credentials: "include" });
-        }
-
-        if (!res.ok) {
-          navigate("/login", { replace: true });
-          return;
         }
 
         const data = await res.json();
