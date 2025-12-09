@@ -17,6 +17,7 @@ app = FastAPI(title=settings.PROJECT_NAME)
 origins = [
     "http://localhost:80",
     "http://localhost",
+    "http://178.72.139.68",
     "http://localhost:3000",
     "http://backend:3000",
     "http://localhost:5172",
