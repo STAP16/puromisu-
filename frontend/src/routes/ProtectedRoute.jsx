@@ -11,6 +11,5 @@ export default function ProtectedRoute({ children }) {
 
   if (loading) return <Loader />; // показываем Loader пока идёт fetch/refresh
   if (!userData) return <Navigate to="/login" replace />; // если нет данных → login
-
-  return children;
+  if (userData === 405) return <Navigate to="/register" />;
 }

@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
         const data = await res.json();
         setUserData(data);
       } catch (err) {
-        navigate("/register", { replace: true });
+        setUserData(err.status);
       } finally {
         setLoading(false);
       }
