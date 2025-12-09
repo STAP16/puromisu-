@@ -1,5 +1,6 @@
 import { useState } from "react";
-const MY_API = "http://localhost:8000/auth";
+import { API_URL } from "./api";
+const MY_API = `${API_URL}/auth`;
 
 export const useLogout = () => {
   const [loading, setLoading] = useState(false);

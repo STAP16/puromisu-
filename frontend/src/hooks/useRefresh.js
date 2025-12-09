@@ -1,4 +1,5 @@
-const MY_API = "http://localhost:8000/protected";
+import { API_URL } from "./api";
+const MY_API = `${API_URL}/protected`;
 
 async function useRefresh() {
   try {

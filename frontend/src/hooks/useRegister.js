@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-const MY_API = "http://localhost:8000/user/users";
+import { API_URL } from "./api";
+const MY_API = `${API_URL}/user/users`;
 
 export const useRegister = () => {
   const [loading, setLoading] = useState(false);

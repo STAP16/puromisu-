@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-const MY_API = "http://localhost:8000/user";
+import { API_URL } from "./api";
+const MY_API = `${API_URL}/user`;
 
 const useUsers = () => {
   const [data, setData] = useState(null);

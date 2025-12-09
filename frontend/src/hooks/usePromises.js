@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-const MY_API = "http://localhost:8000/promise/get_all";
+import { API_URL } from "./api";
+const MY_API = `${API_URL}/promise/get_all`;
 
 export function usePromises() {
   const [loading, setLoading] = useState(false);
