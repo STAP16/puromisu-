@@ -1,0 +1,26 @@
+.promiseCardContainer {
+  display: grid;
+  gap: 16px;
+}
+
+.filterBarContainer {
+  position: fixed; /* фиксируем относительно экрана */
+  top: 20px; /* отступ сверху */
+  left: 50%; /* смещаем в центр по X */
+  transform: translateX(-50%);
+  z-index: 1000;
+  margin-bottom: 20px;
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+@media (width < 768px) {
+  .filterBarContainer {
+    top: 100px;
+  }
+}

@@ -7,12 +7,22 @@
 body {
   min-height: 100vh;
   background: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 :root {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: rgb(174, 212, 245);
+  --card-bg: linear-gradient(
+    135deg,
+    rgba(12, 14, 25, 0.9),
+    rgba(4, 6, 18, 0.95)
+  );
+  --glass: rgba(255, 255, 255, 0.04);
+  --accent-1: #86f0ff;
+  --accent-2: #b98eff;
+  --glass-border: rgba(255, 255, 255, 0.06);
 }
 
 a {
@@ -96,11 +106,12 @@ a:hover {
 .page {
   position: relative;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .title {
@@ -153,6 +164,55 @@ a:hover {
   position: fixed;
   top: 20px;
   right: 20px;
+}
+
+.cosmic-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: sans-serif;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cosmic-checkbox input {
+  display: none;
+}
+
+.cosmic-checkbox span {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #1a1457, #1a1a2e);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 5px #6b5cff;
+}
+
+.cosmic-checkbox input:checked + span {
+  transform: scale(1.2);
+}
+
+.cosmic-checkbox span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: #4133e44b;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s ease;
+}
+
+.cosmic-checkbox h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.cosmic-checkbox input:checked + span::after {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 @media screen and (max-width: 768px) {

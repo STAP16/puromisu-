@@ -5,6 +5,10 @@ import { useEffect, useState } from "react";
 
 import { usePromises } from "../../hooks/usePromises";
 import Loader from "../../ArtComponents/Loader";
+import PromiseCard from "../../components/PromiseCard";
+
+import styles from "./PromisePage.module.css";
+import { formatToDDMMYYYY } from "../../utils/dateFromat";
 
 const nullData = `Click "Create Promise" to create promise`;
 export default function PromisePage() {
@@ -33,7 +37,29 @@ export default function PromisePage() {
   return (
     <div className="page">
       <div className="pageContent">
+        <div className={styles.filterBarContainer}>
+          <div className={styles.filterBar}>
+            <label class="cosmic-checkbox">
+              <h1>Show first</h1>
+              <input type="checkbox" />
+              <span></span>
+            </label>
+          </div>
+        </div>
         <h1>{!data[0] ? nullData : null}</h1>
+        <section className={styles.promiseCardContainer}>
+          {data.map((promise) => {
+            return (
+              <PromiseCard
+                key={promise.id}
+                id={promise.id}
+                title={promise.title}
+                description={promise.description}
+                date={formatToDDMMYYYY(promise.created_at)}
+              />
+            );
+          })}
+        </section>
         <div className="centerButton">
           <Button>Create Promise +</Button>
         </div>
