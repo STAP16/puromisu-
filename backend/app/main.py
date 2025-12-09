@@ -15,6 +15,8 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI(title=settings.PROJECT_NAME)
 
 origins = [
+    "http://localhost:80",
+    "http://localhost",
     "http://localhost:3000",
     "http://backend:3000",
     "http://localhost:5172",
