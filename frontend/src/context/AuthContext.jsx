@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }) => {
         let res = await fetch(`${MY_API}/content`, { credentials: "include" });
 
         // Если access токен слетел
+
         if (res.status === 403) {
           const refresh = await useRefresh();
           if (refresh.error) {

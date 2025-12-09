@@ -7,12 +7,14 @@ import Main from "./pages/main/Main";
 import Register from "./pages/auth/Register";
 import { AuthProvider } from "./context/AuthContext";
 import PromisePage from "./pages/promise/PromisePage";
+import Start from "./pages/Start";
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
         <Routes>
+          <Route path="/" element={<Start />}></Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           {/* <Route path="/auth" element={<Auth />} /> */}
