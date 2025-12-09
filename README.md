@@ -1,4 +1,4 @@
-# App with JWT auth + Async PosgreSQL
+# FullStack App with JWT auth + Async PosgreSQL
 ## Stack:
 ## FastAPI, React JS, Docker Compose, Nginx, PosgreSQL, Async, React-Router
 
