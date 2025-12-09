@@ -4,7 +4,8 @@ import useRefresh from "../hooks/useRefresh";
 
 export const AuthContext = createContext(null);
 
-const MY_API = "http://localhost:8000/protected";
+import { API_URL } from "../hooks/api";
+const MY_API = `${API_URL}/protected`;
 
 export const AuthProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
