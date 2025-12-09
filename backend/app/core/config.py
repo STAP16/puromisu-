@@ -37,7 +37,7 @@ class Settings(BaseSettings):
 
     class Config:
         #Подгружаем переменные из env файла
-        env_file = "app/.env"
+        env_file = ".env"
         env_file_encoding = "utf-8"
 
 settings = Settings()
